@@ -1,0 +1,33 @@
+import time 
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM) # modify pins
+
+GPIO_TRIGGER = 8 #Trigger
+GPIO_ECHO = 7 #Echo
+
+#set pins
+GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
+GPIO.setup(GPIO_ECHO,GPIO.IN)
+
+
+GPIO.output(GPIO_TRIGGER, False)
+time.sleep(0.5)
+
+GPIO.output(GPIO_TRIGGER, True)
+time.sleep(0.00001)
+GPIO.output(GPIO_TRIGGER, False)
+
+start = time.time()
+while GPIO.input(GPIO_ECHO) == 0:
+  start = time.time()
+while GPIO.input(GPIO)ECGO) == 1:
+  stop = time.time()
+longtime = stop - start 
+
+distance = longtime * 34000
+distance = distance / 2  # go and back is twice 
+
+print('Ultrasonic distance : %.lf'%distance)
+
+GPIO.cleanup()
