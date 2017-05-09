@@ -21,3 +21,5 @@ camera.stop_recording() # stop
 #for cmd
 raspivid -o video.h264 -t 10000
 
+
+
