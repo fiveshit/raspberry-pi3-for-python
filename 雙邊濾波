@@ -1,0 +1,20 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('/home/pi/pytest/sample.jpg')
+blur = cv2.bilateralFilter(img, 9, 75, 75)
+
+cv2.imshow("Original",img)
+cv2.imshow("Bilateral Filter",blur)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+--------------------------------
+cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace)
+
+src : 原始影像
+d : 進行濾波時，每個像素周邊範圍的直徑
+sigmaColor : 色彩空間的標準差
+sigmaSpace : 座標空間的標準差
